@@ -1,0 +1,17 @@
+{
+  "name": "stack",
+  "version": "1.0.0",
+  "author": "Toufiq (https://twitter.com/burningraven06)",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  },
+  "scripts": {
+    "watch-ts": "tsc -w",
+    "watch-js": "nodemon build/main/app.js",
+    "output": "node build/main/app.js"
+  },
+  "dependencies": {
+    "tslint": "^5.12.0"
+  }
+}
