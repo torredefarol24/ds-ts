@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var set_1 = __importDefault(require("../set/set"));
-var s1 = new set_1.default();
-var s2 = new set_1.default();
-var s3 = new set_1.default();
+const set_1 = __importDefault(require("../set/set"));
+let s1 = new set_1.default();
+let s2 = new set_1.default();
+let s3 = new set_1.default();
 s1.insert(3);
 s1.insert(5);
 s1.insert(1);

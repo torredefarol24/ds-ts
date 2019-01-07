@@ -1,22 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Stack = /** @class */ (function () {
-    function Stack() {
+class Stack {
+    constructor() {
         this.items = {};
         this.count = 0;
     }
-    Stack.prototype.printItems = function () {
+    printItems() {
         console.log("--------\nItems");
         for (var i = 0; i < this.count; i++) {
             console.log(this.items[i]);
         }
         console.log("--------");
-    };
-    Stack.prototype.appendElem = function (item) {
+    }
+    appendElem(item) {
         this.items[this.count] = item;
         this.count++;
-    };
-    Stack.prototype.popFromEnd = function () {
+    }
+    popFromEnd() {
         if (this.count == 0) {
             return undefined;
         }
@@ -24,14 +24,13 @@ var Stack = /** @class */ (function () {
         var result = this.items[this.count];
         delete this.items[this.count];
         return result;
-    };
-    Stack.prototype.getSize = function () {
+    }
+    getSize() {
         return this.count;
-    };
-    Stack.prototype.peek = function () {
+    }
+    peek() {
         return this.items[this.count - 1];
-    };
-    return Stack;
-}());
+    }
+}
 exports.default = Stack;
 //# sourceMappingURL=stack.js.map

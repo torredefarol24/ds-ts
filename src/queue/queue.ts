@@ -11,6 +11,10 @@ export class Queue {
         console.log("---------\n", this.items)
     }
 
+    public isEmpty() {
+        return this.items.length === 0
+    }
+
     public enqueue(item: any) {
         this.items.push(item)
         this.length++

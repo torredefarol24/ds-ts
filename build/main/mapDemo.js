@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var map_1 = __importDefault(require("../map/map"));
-var m1 = new map_1.default();
+const map_1 = __importDefault(require("../map/map"));
+let m1 = new map_1.default();
 m1.set("Rooms", 1);
 m1.set("Balcony", 2);
 m1.set("Road", 4);

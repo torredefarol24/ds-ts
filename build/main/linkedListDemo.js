@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var linkedList_1 = __importDefault(require("../linkedList/linkedList"));
-var ll1 = new linkedList_1.default();
+const linkedList_1 = __importDefault(require("../linkedList/linkedList"));
+let ll1 = new linkedList_1.default();
 ll1.printList();
 console.log("-------");
 ll1.add(2);

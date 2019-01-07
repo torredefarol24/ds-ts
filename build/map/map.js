@@ -1,24 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var CustMap = /** @class */ (function () {
-    function CustMap() {
+class CustMap {
+    constructor() {
         this.collection = {};
         this.count = 0;
     }
-    CustMap.prototype.size = function () {
+    size() {
         return this.count;
-    };
-    CustMap.prototype.set = function (key, value) {
+    }
+    set(key, value) {
         this.collection[key] = value;
         this.count++;
-    };
-    CustMap.prototype.has = function (key) {
+    }
+    has(key) {
         return (key in this.collection);
-    };
-    CustMap.prototype.getValue = function (key) {
+    }
+    getValue(key) {
         return (key in this.collection) ? this.collection[key] : null;
-    };
-    CustMap.prototype.removeData = function (key) {
+    }
+    removeData(key) {
         if (key in this.collection) {
             delete this.collection[key];
             this.count--;
@@ -26,39 +26,38 @@ var CustMap = /** @class */ (function () {
         else {
             return null;
         }
-    };
-    CustMap.prototype.getKeys = function () {
+    }
+    getKeys() {
         var arr = new Array();
         for (var key in this.collection) {
             arr.push(key);
         }
         return arr;
-    };
-    CustMap.prototype.getValues = function () {
+    }
+    getValues() {
         var arr = new Array();
         for (var key in this.collection) {
             arr.push(this.collection[key]);
         }
         return arr;
-    };
-    CustMap.prototype.printMap = function () {
+    }
+    printMap() {
         console.log("\nPrinting Map");
         for (var key in this.collection) {
             console.log(key, " : ", this.collection[key]);
         }
-    };
-    CustMap.prototype.getAllData = function () {
+    }
+    getAllData() {
         var arr = new Array();
         for (var key in this.collection) {
             var tempArr = [key, this.collection[key]];
             arr.push(tempArr);
         }
         return arr;
-    };
-    CustMap.prototype.printMapSnapshot = function () {
+    }
+    printMapSnapshot() {
         return this.collection;
-    };
-    return CustMap;
-}());
+    }
+}
 exports.default = CustMap;
 //# sourceMappingURL=map.js.map

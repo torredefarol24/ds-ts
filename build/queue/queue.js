@@ -1,18 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Queue = /** @class */ (function () {
-    function Queue() {
+class Queue {
+    constructor() {
         this.items = [];
         this.length = 0;
     }
-    Queue.prototype.printQueue = function () {
+    printQueue() {
         console.log("---------\n", this.items);
-    };
-    Queue.prototype.enqueue = function (item) {
+    }
+    isEmpty() {
+        return this.items.length === 0;
+    }
+    enqueue(item) {
         this.items.push(item);
         this.length++;
-    };
-    Queue.prototype.dequeue = function () {
+    }
+    dequeue() {
         if (this.length > 0) {
             this.length--;
             return this.items.shift();
@@ -20,31 +23,29 @@ var Queue = /** @class */ (function () {
         else {
             console.log("Queue is empty");
         }
-    };
-    Queue.prototype.front = function () {
+    }
+    front() {
         return this.items[0];
-    };
-    Queue.prototype.end = function () {
+    }
+    end() {
         return this.items[this.length - 1];
-    };
-    return Queue;
-}());
+    }
+}
 exports.Queue = Queue;
-var PQElem = /** @class */ (function () {
-    function PQElem(elem, priority) {
+class PQElem {
+    constructor(elem, priority) {
         this.elem = elem;
         this.priority = priority;
     }
-    return PQElem;
-}());
-var PriorityQueue = /** @class */ (function () {
-    function PriorityQueue() {
+}
+class PriorityQueue {
+    constructor() {
         this.items = [];
     }
-    PriorityQueue.prototype.isEmpty = function () {
+    isEmpty() {
         return this.items.length === 0;
-    };
-    PriorityQueue.prototype.printPQueue = function () {
+    }
+    printPQueue() {
         if (this.isEmpty()) {
             console.log("Queue Empty");
         }
@@ -54,8 +55,8 @@ var PriorityQueue = /** @class */ (function () {
                 console.log(this.items[i]);
             }
         }
-    };
-    PriorityQueue.prototype.enqueue = function (elem, priority) {
+    }
+    enqueue(elem, priority) {
         var pqElem = new PQElem(elem, priority);
         var done = false;
         for (var i = 0; i < this.items.length; i++) {
@@ -67,32 +68,31 @@ var PriorityQueue = /** @class */ (function () {
         }
         if (!done)
             this.items.push(pqElem);
-    };
-    PriorityQueue.prototype.dequeue = function () {
+    }
+    dequeue() {
         if (this.isEmpty()) {
             console.log("Queue Empty");
         }
         else {
             return this.items.shift();
         }
-    };
-    PriorityQueue.prototype.head = function () {
+    }
+    head() {
         if (this.isEmpty()) {
             console.log("Queue Empty");
         }
         else {
             return this.items[0];
         }
-    };
-    PriorityQueue.prototype.tail = function () {
+    }
+    tail() {
         if (this.isEmpty()) {
             console.log("Queue Empty");
         }
         else {
             return this.items[this.items.length - 1];
         }
-    };
-    return PriorityQueue;
-}());
+    }
+}
 exports.PriorityQueue = PriorityQueue;
 //# sourceMappingURL=queue.js.map

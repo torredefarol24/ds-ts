@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var hashTable_1 = __importDefault(require("../hashTable/hashTable"));
-var ht = new hashTable_1.default();
+const hashTable_1 = __importDefault(require("../hashTable/hashTable"));
+let ht = new hashTable_1.default();
 ht.add("Spiderman", "superhero");
 ht.add("Tom", "cat");
 ht.add("TopCat", "cat");

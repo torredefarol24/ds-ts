@@ -1,30 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var DS_Set = /** @class */ (function () {
-    function DS_Set() {
+class DS_Set {
+    constructor() {
         this.collection = [];
     }
-    DS_Set.prototype.has = function (elem) {
+    has(elem) {
         return this.collection.indexOf(elem) !== -1;
-    };
-    DS_Set.prototype.values = function () {
+    }
+    values() {
         return this.collection;
-    };
-    DS_Set.prototype.printSet = function () {
+    }
+    printSet() {
         console.log("-----------");
-        this.collection.forEach(function (item) { return console.log(item); });
-    };
-    DS_Set.prototype.insert = function (elem) {
+        this.collection.forEach((item) => console.log(item));
+    }
+    insert(elem) {
         if (this.has(elem)) {
-            console.log(elem + " Exists Already");
+            console.log(`${elem} Exists Already`);
             return false;
         }
         else {
             this.collection.push(elem);
             return true;
         }
-    };
-    DS_Set.prototype.remove = function (elem) {
+    }
+    remove(elem) {
         if (this.has(elem)) {
             var index = this.collection.indexOf(elem);
             this.collection.splice(index, 1);
@@ -34,50 +34,48 @@ var DS_Set = /** @class */ (function () {
             console.log("Elem Doesnt Exist");
             return false;
         }
-    };
-    DS_Set.prototype.union = function (otherSet) {
+    }
+    union(otherSet) {
         var unionSet = new Set();
-        this.values().forEach(function (item) { return unionSet.add(item); });
-        otherSet.values().forEach(function (item) { return unionSet.add(item); });
+        this.values().forEach((item) => unionSet.add(item));
+        otherSet.values().forEach((item) => unionSet.add(item));
         return unionSet;
-    };
-    DS_Set.prototype.intersection = function (otherSet) {
+    }
+    intersection(otherSet) {
         var intersectionSet = new Set();
-        this.values().forEach(function (item) {
+        this.values().forEach((item) => {
             if (otherSet.has(item)) {
                 intersectionSet.add(item);
             }
         });
         return intersectionSet;
-    };
-    DS_Set.prototype.difference = function (otherSet) {
+    }
+    difference(otherSet) {
         var differenceSet = new Set();
-        this.values().forEach(function (item) {
+        this.values().forEach((item) => {
             if (!otherSet.has(item)) {
                 differenceSet.add(item);
             }
         });
         return differenceSet;
-    };
-    DS_Set.prototype.oppositeIntersection = function (otherSet) {
-        var _this = this;
+    }
+    oppositeIntersection(otherSet) {
         var oppositeIntersectionSet = new Set();
-        this.values().forEach(function (item) {
+        this.values().forEach((item) => {
             if (!otherSet.has(item)) {
                 oppositeIntersectionSet.add(item);
             }
         });
-        otherSet.values().forEach(function (item) {
-            if (!_this.has(item)) {
+        otherSet.values().forEach((item) => {
+            if (!this.has(item)) {
                 oppositeIntersectionSet.add(item);
             }
         });
         return oppositeIntersectionSet;
-    };
-    DS_Set.prototype.isSubset = function (otherSet) {
-        return this.values().every(function (item) { return otherSet.has(item); });
-    };
-    return DS_Set;
-}());
+    }
+    isSubset(otherSet) {
+        return this.values().every((item) => otherSet.has(item));
+    }
+}
 exports.default = DS_Set;
 //# sourceMappingURL=set.js.map

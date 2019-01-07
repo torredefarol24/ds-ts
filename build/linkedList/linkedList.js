@@ -1,36 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var LinkedListNode = /** @class */ (function () {
-    function LinkedListNode(data) {
+class LinkedListNode {
+    constructor(data) {
         this.data = data;
         this.next = null;
     }
-    return LinkedListNode;
-}());
-var LinkedList = /** @class */ (function () {
-    function LinkedList() {
+}
+class LinkedList {
+    constructor() {
         this.head = null;
         this.length = 0;
     }
-    LinkedList.prototype.getHead = function () {
+    getHead() {
         return this.head;
-    };
-    LinkedList.prototype.getSize = function () {
+    }
+    getSize() {
         return this.length;
-    };
-    LinkedList.prototype.insertAtStart = function (node) {
+    }
+    insertAtStart(node) {
         this.head = node;
         this.length++;
-    };
-    LinkedList.prototype.insertAtEnd = function (node) {
+    }
+    insertAtEnd(node) {
         var currentNode = this.head;
         while (currentNode.next) {
             currentNode = currentNode.next;
         }
         currentNode.next = node;
         this.length++;
-    };
-    LinkedList.prototype.add = function (data) {
+    }
+    add(data) {
         var node = new LinkedListNode(data);
         if (!this.getHead())
             this.insertAtStart(node);
@@ -42,8 +41,8 @@ var LinkedList = /** @class */ (function () {
             currentNode.next = node;
             this.length++;
         }
-    };
-    LinkedList.prototype.remove = function (data) {
+    }
+    remove(data) {
         var currentNode = this.head;
         var previousNode = null;
         var elemMatched = false;
@@ -75,11 +74,11 @@ var LinkedList = /** @class */ (function () {
                 console.log("Elem Doesnt Exist");
             }
         }
-    };
-    LinkedList.prototype.isEmpty = function () {
+    }
+    isEmpty() {
         return this.length == 0;
-    };
-    LinkedList.prototype.indexOf = function (data) {
+    }
+    indexOf(data) {
         var currentNode = this.head;
         var index = -1;
         while (currentNode) {
@@ -90,8 +89,8 @@ var LinkedList = /** @class */ (function () {
             currentNode = currentNode.next;
         }
         return -1;
-    };
-    LinkedList.prototype.elementAt = function (index) {
+    }
+    elementAt(index) {
         var currentNode = this.head;
         var counter = 0;
         while (counter < index) {
@@ -99,8 +98,8 @@ var LinkedList = /** @class */ (function () {
             currentNode = currentNode.next;
         }
         return currentNode;
-    };
-    LinkedList.prototype.insertAtPos = function (index, elem) {
+    }
+    insertAtPos(index, elem) {
         var currentNode = this.head;
         var counter = 0;
         var newNode = new LinkedListNode(elem);
@@ -133,8 +132,8 @@ var LinkedList = /** @class */ (function () {
                 this.length++;
             }
         }
-    };
-    LinkedList.prototype.removeAtPos = function (index) {
+    }
+    removeAtPos(index) {
         if (!this.getHead()) {
             console.log("List Empty");
             return undefined;
@@ -160,8 +159,8 @@ var LinkedList = /** @class */ (function () {
                 previousNode.next = currentNode.next;
             }
         }
-    };
-    LinkedList.prototype.printList = function () {
+    }
+    printList() {
         if (this.head) {
             var currentNode = this.head;
             var str = "";
@@ -175,8 +174,7 @@ var LinkedList = /** @class */ (function () {
             console.log("List Empty");
             return null;
         }
-    };
-    return LinkedList;
-}());
+    }
+}
 exports.default = LinkedList;
 //# sourceMappingURL=linkedList.js.map

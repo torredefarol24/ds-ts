@@ -1,27 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var hashMech = function (str, max) {
+const hashMech = (str, max) => {
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
         hash += str.charCodeAt(i);
     }
     return hash % max;
 };
-var HashTable = /** @class */ (function () {
-    function HashTable() {
+class HashTable {
+    constructor() {
         this.storage = [];
         this.storageLimit = 5;
     }
-    HashTable.prototype.printTable = function () {
+    printTable() {
         console.log(this.storage);
-    };
-    HashTable.prototype.add = function (key, value) {
+    }
+    add(key, value) {
         var index = hashMech(key, this.storageLimit);
         if (this.storage[index] === undefined) {
             this.storage[index] = [[key, value]];
         }
         else {
-            var inserted = false;
+            let inserted = false;
             for (var i = 0; i < this.storage[index].length; i++) {
                 if (this.storage[index][i][0] == key) {
                     this.storage[index][i][1] = value;
@@ -32,8 +32,8 @@ var HashTable = /** @class */ (function () {
                 this.storage[index].push([key, value]);
             }
         }
-    };
-    HashTable.prototype.remove = function (key) {
+    }
+    remove(key) {
         var index = hashMech(key, this.storageLimit);
         if (this.storage[index].length == 1 && this.storage[index][0][0] == key) {
             delete this.storage[index];
@@ -45,14 +45,14 @@ var HashTable = /** @class */ (function () {
                 }
             }
         }
-    };
-    HashTable.prototype.lookup = function (key) {
+    }
+    lookup(key) {
         var index = hashMech(key, this.storageLimit);
         if (this.storage[index] === undefined) {
             return undefined;
         }
         else {
-            var found = false;
+            let found = false;
             for (var i = 0; i < this.storage[index].length; i++) {
                 if (this.storage[index][i][0] == key) {
                     found = true;
@@ -63,8 +63,7 @@ var HashTable = /** @class */ (function () {
                 return "Elem Not Found";
             }
         }
-    };
-    return HashTable;
-}());
+    }
+}
 exports.default = HashTable;
 //# sourceMappingURL=hashTable.js.map

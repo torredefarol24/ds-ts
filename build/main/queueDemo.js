@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var queue_1 = require("../queue/queue");
-var q = new queue_1.Queue();
+const queue_1 = require("../queue/queue");
+let q = new queue_1.Queue();
 q.enqueue(2);
 q.enqueue(3);
 q.enqueue("e");
@@ -11,7 +11,7 @@ q.dequeue();
 q.printQueue();
 console.log("Priority Queue");
 // high priority denoted by higher number
-var pq = new queue_1.PriorityQueue();
+let pq = new queue_1.PriorityQueue();
 pq.enqueue("Take Shower", 5);
 pq.enqueue("Wash clothes", 2);
 pq.enqueue("Finish Book", 3);

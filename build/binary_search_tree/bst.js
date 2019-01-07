@@ -1,35 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var BinaryNode = /** @class */ (function () {
-    function BinaryNode(data, left, right) {
-        if (left === void 0) { left = null; }
-        if (right === void 0) { right = null; }
+class BinaryNode {
+    constructor(data, left = null, right = null) {
         this.data = data;
         this.left = left;
         this.right = right;
     }
-    return BinaryNode;
-}());
+}
 exports.BinaryNode = BinaryNode;
-var BinarySearchTree = /** @class */ (function () {
-    function BinarySearchTree() {
+class BinarySearchTree {
+    constructor() {
         this.root = null;
     }
-    BinarySearchTree.prototype.add = function (data) {
-        var currentNode = this.root;
+    add(data) {
+        const currentNode = this.root;
         if (currentNode == null) {
             this.root = new BinaryNode(data);
             return;
         }
         else {
-            var searchTree_1 = function (currentNode) {
+            const searchTree = (currentNode) => {
                 if (data < currentNode.data) {
                     if (currentNode.left === null) {
                         currentNode.left = new BinaryNode(data);
                         return;
                     }
                     else {
-                        return searchTree_1(currentNode.left);
+                        return searchTree(currentNode.left);
                     }
                 }
                 else if (data > currentNode.data) {
@@ -38,31 +35,31 @@ var BinarySearchTree = /** @class */ (function () {
                         return;
                     }
                     else {
-                        return searchTree_1(currentNode.right);
+                        return searchTree(currentNode.right);
                     }
                 }
                 else {
                     return null;
                 }
             };
-            return searchTree_1(currentNode);
+            return searchTree(currentNode);
         }
-    };
-    BinarySearchTree.prototype.findMin = function () {
+    }
+    findMin() {
         var currentNode = this.root;
         while (currentNode.left != null) {
             currentNode = currentNode.left;
         }
         return currentNode.data;
-    };
-    BinarySearchTree.prototype.findMax = function () {
+    }
+    findMax() {
         var currentNode = this.root;
         while (currentNode.right != null) {
             currentNode = currentNode.right;
         }
         return currentNode.data;
-    };
-    BinarySearchTree.prototype.find = function (data) {
+    }
+    find(data) {
         var currentNode = this.root;
         while (currentNode.data !== data) {
             if (data < currentNode.data) {
@@ -76,8 +73,8 @@ var BinarySearchTree = /** @class */ (function () {
             }
         }
         return currentNode;
-    };
-    BinarySearchTree.prototype.isPresent = function (data) {
+    }
+    isPresent(data) {
         var currentNode = this.root;
         while (currentNode != null) {
             if (data === currentNode.data) {
@@ -91,9 +88,9 @@ var BinarySearchTree = /** @class */ (function () {
             }
         }
         return false;
-    };
-    BinarySearchTree.prototype.remove = function (data) {
-        var removeData = function (node, data) {
+    }
+    remove(data) {
+        const removeData = (node, data) => {
             if (node === null)
                 return null;
             if (data == node.data) {
@@ -121,84 +118,82 @@ var BinarySearchTree = /** @class */ (function () {
             }
         };
         this.root = removeData(this.root, data);
-    };
-    BinarySearchTree.prototype.findMinHeight = function (node) {
-        if (node === void 0) { node = this.root; }
+    }
+    findMinHeight(node = this.root) {
         if (node === null)
             return -1;
-        var left = this.findMinHeight(node.left);
-        var right = this.findMinHeight(node.right);
+        let left = this.findMinHeight(node.left);
+        let right = this.findMinHeight(node.right);
         if (left < right) {
             return left + 1;
         }
         else {
             return right + 1;
         }
-    };
-    BinarySearchTree.prototype.findMaxHeight = function (node) {
-        if (node === void 0) { node = this.root; }
+    }
+    findMaxHeight(node = this.root) {
         if (node === null)
             return -1;
-        var left = this.findMaxHeight(node.left);
-        var right = this.findMaxHeight(node.right);
+        let left = this.findMaxHeight(node.left);
+        let right = this.findMaxHeight(node.right);
         if (left > right) {
             return left + 1;
         }
         else {
             return right + 1;
         }
-    };
-    BinarySearchTree.prototype.printInOrder = function () {
+    }
+    printInOrder() {
         if (this.root === null)
             return null;
         else {
             var result = new Array();
-            var traverseInOrder_1 = function (node) {
-                node.left && traverseInOrder_1(node.left);
+            const traverseInOrder = (node) => {
+                node.left && traverseInOrder(node.left);
                 result.push(node.data);
-                node.right && traverseInOrder_1(node.right);
+                node.right && traverseInOrder(node.right);
             };
-            traverseInOrder_1(this.root);
+            traverseInOrder(this.root);
             return result;
         }
-    };
-    BinarySearchTree.prototype.printPreOrder = function () {
+    }
+    printPreOrder() {
         if (this.root == null)
             return null;
         else {
             var result = new Array();
-            var traversePreOrder_1 = function (node) {
+            const traversePreOrder = (node) => {
                 result.push(node.data);
-                node.left && traversePreOrder_1(node.left);
-                node.right && traversePreOrder_1(node.right);
+                node.left && traversePreOrder(node.left);
+                node.right && traversePreOrder(node.right);
             };
-            traversePreOrder_1(this.root);
+            traversePreOrder(this.root);
             return result;
         }
-    };
-    BinarySearchTree.prototype.printPostOrder = function () {
+    }
+    printPostOrder() {
         if (this.root == null)
             return null;
         else {
             var result = new Array();
-            var traversePostOrder_1 = function (node) {
-                node.left && traversePostOrder_1(node.left);
-                node.right && traversePostOrder_1(node.right);
+            const traversePostOrder = (node) => {
+                node.left && traversePostOrder(node.left);
+                node.right && traversePostOrder(node.right);
                 result.push(node.data);
             };
-            traversePostOrder_1(this.root);
+            traversePostOrder(this.root);
             return result;
         }
-    };
-    BinarySearchTree.prototype.printLevelOrder = function () {
-        var result = new Array();
-        var Queue = new Array();
+    }
+    printLevelOrder() {
+        let result = new Array();
+        let Queue = new Array();
         if (this.root == null)
             return null;
         else {
             Queue.push(this.root);
             while (Queue.length > 0) {
-                var currentNode = Queue.shift();
+                let currentNode = Queue.shift();
                 result.push(currentNode.data);
                 if (currentNode.left != null) {
                     Queue.push(currentNode.left);
@@ -209,8 +204,7 @@ var BinarySearchTree = /** @class */ (function () {
             }
             return result;
         }
-    };
-    return BinarySearchTree;
-}());
+    }
+}
 exports.BinarySearchTree = BinarySearchTree;
 //# sourceMappingURL=bst.js.map

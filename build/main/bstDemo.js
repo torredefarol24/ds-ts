@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var bst_2 = require("../binary_search_tree/bst");
-var bst_1 = new bst_2.BinarySearchTree();
+const bst_2 = require("../binary_search_tree/bst");
+let bst_1 = new bst_2.BinarySearchTree();
 bst_1.add(14);
 bst_1.add(8);
 bst_1.add(19);
